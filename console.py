@@ -90,6 +90,18 @@ class HBNBCommand(cmd.Cmd):
             if _id is False:
                 print("** no instance found **")
 
+    def do_all(self, arg):
+        """Prints all string representation of all instances"""
+        if arg not in self.classes and arg != "":
+            print("** class doesn't exist **")
+        else:
+            inst_list = []
+            storage.reload()
+            all_objs = storage.all()
+            for key, value in all_objs.items():
+                inst_list.append(str(value))
+            print(inst_list)
+
     def do_quit(self, arg):
         """Quit command to exit the program\n"""
         self.close()

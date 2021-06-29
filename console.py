@@ -15,8 +15,8 @@ class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
     file = None
 
-    clases = ['BaseModel']
-    all_objs = storage.all()
+    classes = ['BaseModel']
+
 
     def do_create(self, arg):
         """Creates a new instance of BaseModel\n"""
@@ -53,15 +53,39 @@ class HBNBCommand(cmd.Cmd):
         _id = False
         if bool(arg) is False:
             print("** class name missing **")
-        elif args[0] not in self.clases:
+        elif args[0] not in self.classes:
             print("** class doesn't exist **")
         elif len(args) != 2:
             print("** instance id missing **")
         else:
+            storage.reload()
+            all_objs = storage.all()
             search = args[0]+'.'+args[1]
-            for key, value in self.all_objs.items():
+            for key, value in all_objs.items():
                 if key == search:
                     print(value)
+                    _id = True
+                    break
+            if _id is False:
+                print("** no instance found **")
+
+    def do_destroy(self, arg):
+        """Deletes an instance based on the class name and id"""
+        args = arg.split()
+        _id = False
+        if bool(arg) is False:
+            print("** class name missing **")
+        elif args[0] not in self.classes:
+            print("** class doesn't exist **")
+        elif len(args) != 2:
+            print("** instance id missing **")
+        else:
+            all_objs = storage.all()
+            search = args[0] + '.' + args[1]
+            for key, value in all_objs.items():
+                if key == search:
+                    del all_objs[key]
+                    storage.save()
                     _id = True
                     break
             if _id is False:
@@ -80,9 +104,11 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def emptyline(self):
+        """Execute nothing when there's not command"""
         pass
 
     def close(self):
+        """Close method"""
         if self.file:
             self.file.close()
             self.file = None

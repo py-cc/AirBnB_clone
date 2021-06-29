@@ -4,6 +4,8 @@ Console - Module
 """
 import cmd
 from models.base_model import BaseModel
+from models import storage
+from models.engine.file_storage import FileStorage
 
 
 class HBNBCommand(cmd.Cmd):
@@ -27,22 +29,23 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, arg):
         """Prints the string representation of an instance"""
-        id = arg
-        print(id)
-        if arg is None or arg == "":
+        args = arg.split()
+        if len(args) == 0:
             print("** class name missing **")
         else:
-            try:
-                if id is None or id == "":
-                    print("** instance id missing **")
+            if len(args) == 1:
+                print("** instance id missing **")
+                return
+            all_objs = storage.all()
+            for obj_id in all_objs.keys():
+                dir_obj = all_objs[obj_id].to_dict()
+                if dir_obj['__class__'] != args[0]:
+                    print("** class doesn't exist **")
                     return
-                for obj_id in eval(arg + ".keys()"):
-                    if obj_id == id:
-                        print(obj_id[id])
-                        return
-                print("** no instance found **")
-            except NameError:
-                print("** class doesn't exist **")
+                if obj_id == args[0] + "." + args[1]:
+                    print(all_objs[obj_id])
+                    return
+            print("** no instance found **")
 
     def do_quit(self, arg):
         """Quit command to exit the program\n"""
@@ -63,6 +66,11 @@ class HBNBCommand(cmd.Cmd):
         if self.file:
             self.file.close()
             self.file = None
+
+
+def parse(arg):
+    'Convert a series of zero or more numbers to an argument tuple'
+    return tuple(map(int, arg.split()))
 
 
 if __name__ == '__main__':

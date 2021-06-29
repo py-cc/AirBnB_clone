@@ -15,6 +15,9 @@ class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
     file = None
 
+    clases = ['BaseModel']
+    all_objs = storage.all()
+
     def do_create(self, arg):
         """Creates a new instance of BaseModel\n"""
         if arg is None or arg == "":
@@ -29,7 +32,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, arg):
         """Prints the string representation of an instance"""
-        args = arg.split()
+        """args = arg.split()
         if len(args) == 0:
             print("** class name missing **")
         else:
@@ -45,7 +48,24 @@ class HBNBCommand(cmd.Cmd):
                 if obj_id == args[0] + "." + args[1]:
                     print(all_objs[obj_id])
                     return
-            print("** no instance found **")
+            print("** no instance found **")"""
+        args = arg.split()
+        _id = False
+        if bool(arg) is False:
+            print("** class name missing **")
+        elif args[0] not in self.clases:
+            print("** class doesn't exist **")
+        elif len(args) != 2:
+            print("** instance id missing **")
+        else:
+            search = args[0]+'.'+args[1]
+            for key, value in self.all_objs.items():
+                if key == search:
+                    print(value)
+                    _id = True
+                    break
+            if _id is False:
+                print("** no instance found **")
 
     def do_quit(self, arg):
         """Quit command to exit the program\n"""

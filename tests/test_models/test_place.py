@@ -4,7 +4,7 @@ import unittest
 from models.place import Place
 
 
-class TestPlace(unittest, TestCase):
+class TestPlace(unittest.TestCase):
     """ Test """
 
     def test_place(self):

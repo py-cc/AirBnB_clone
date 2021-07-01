@@ -3,7 +3,7 @@
 import unittest
 
 
-class TestFileStorage(unittest, TestCase):
+class TestFileStorage(unittest.TestCase):
     """ TestFileStorage unittest"""
 
     def test_storage(self):

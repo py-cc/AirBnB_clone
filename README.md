@@ -11,7 +11,7 @@ This is the first step towards building a first full web application: the AirBnB
 
 The goal of this project is to eventually deploy our server a simple copy of the AirBnB Website(HBnB). This first step is very important because we will use what we build during this project with all other following projects: HTML/CSS templating, database storage, API, front-end integration.
 
-![alt text](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/815046647d23428a14ca.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20210701%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210701T114737Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=e2b3ddded8ba8878ef5f5487bbafa2fa424971e504803b517995aedd110a5ec0)
+![alt text](![image](https://user-images.githubusercontent.com/69390957/124124215-cb15dd00-da3d-11eb-975f-ed7789870951.png))
 
 ## Environment
 

@@ -2,8 +2,9 @@
 """
 file storage - Module
 """
-from models.base_model import BaseModel
 import json
+from models.base_model import BaseModel
+form models.user import User
 
 
 class FileStorage:

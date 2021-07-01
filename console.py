@@ -15,7 +15,7 @@ class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
     file = None
 
-    classes = ['BaseModel']
+    classes = ['BaseModel', 'User']
 
     def do_create(self, arg):
         """Creates a new instance of BaseModel\n"""

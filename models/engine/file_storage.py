@@ -4,7 +4,7 @@ file storage - Module
 """
 import json
 from models.base_model import BaseModel
-form models.user import User
+from models.user import User
 
 
 class FileStorage:

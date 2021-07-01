@@ -5,7 +5,9 @@ Console - Module
 import cmd
 from models.base_model import BaseModel
 from models import storage
+import json
 from models.engine.file_storage import FileStorage
+from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):

@@ -4,7 +4,7 @@ import unittest
 from models.amenity import Amenity
 
 
-class TestAmenity(unittest, TestCase):
+class TestAmenity(unittest.TestCase):
     """ Test """
 
     def test_amenity(self):

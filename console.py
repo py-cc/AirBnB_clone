@@ -39,23 +39,6 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, arg):
         """Prints the string representation of an instance"""
-        """args = arg.split()
-        if len(args) == 0:
-            print("** class name missing **")
-        else:
-            if len(args) == 1:
-                print("** instance id missing **")
-                return
-            all_objs = storage.all()
-            for obj_id in all_objs.keys():
-                dir_obj = all_objs[obj_id].to_dict()
-                if dir_obj['__class__'] != args[0]:
-                    print("** class doesn't exist **")
-                    return
-                if obj_id == args[0] + "." + args[1]:
-                    print(all_objs[obj_id])
-                    return
-            print("** no instance found **")"""
         args = arg.split()
         _id = False
         if bool(arg) is False:
@@ -139,16 +122,6 @@ class HBNBCommand(cmd.Cmd):
             else:
                 setattr(myobj, args[2], args[3])
                 myobj.save()
-                """ for obj_id in all_objs.keys():
-                    if obj_id == args[0] + "." + args[1]:
-                        dir_obj = all_objs[obj_id].to_dict()
-                        if args[2] not in dir_obj.keys():
-                            setattr(all_objs[obj_id], args[2], eval(args[3]))
-                        else:
-                            dir_obj[args[2]] = eval(args[3])
-                        all_objs[obj_id] = dir_obj
-                        storage.save()
-                        break """
 
     def do_quit(self, arg):
         """Quit command to exit the program\n"""

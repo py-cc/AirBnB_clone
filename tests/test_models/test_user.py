@@ -4,7 +4,7 @@ import unittest
 from models.user import User
 
 
-class TestUser(unittest.TestCase):
+class TestUser(unittest, TestCase):
     """ Test """
 
     def test_User(self):

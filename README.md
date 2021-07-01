@@ -11,14 +11,14 @@ This is the first step towards building a first full web application: the AirBnB
 
 The goal of this project is to eventually deploy our server a simple copy of the AirBnB Website(HBnB). This first step is very important because we will use what we build during this project with all other following projects: HTML/CSS templating, database storage, API, front-end integration.
 
-![alt text](![image](https://user-images.githubusercontent.com/69390957/124124215-cb15dd00-da3d-11eb-975f-ed7789870951.png))
+![alt text](https://user-images.githubusercontent.com/69390957/124124215-cb15dd00-da3d-11eb-975f-ed7789870951.png)
 
 ## Environment
 
 This project is interpreted/tested on Ubuntu 14.04 LTS using python3 (version 3.4.3)
 
 ## Installation
--   Clone this repository:  `git clone "https://github.com/faykris/AirBnB_clone.git"`
+- Clone this repository:  `git clone "https://github.com/faykris/AirBnB_clone.git"`
 - Run hbnb(interactively):  `./console`  and enter commands
 - Run hbnb(non-interactively):  `echo "<command>" | ./console.py`
 
@@ -68,7 +68,7 @@ Classes inherited from Base Model:
 ## Usage
 
 ### Interactive Mode
-
+```
   $ ./console.py
   (hbnb) help
 
@@ -79,9 +79,10 @@ Classes inherited from Base Model:
   (hbnb)
   (hbnb) quit
   $
+```
 
 ### Interactive Mode
-
+```
   $ echo "help" | ./console.py
   (hbnb)
   Documented commands (type help <topic>):
@@ -102,6 +103,7 @@ Classes inherited from Base Model:
   (hbnb) []
   (hbnb) $
   $
+```
   
 ## Authors
 -   Paola Carrero

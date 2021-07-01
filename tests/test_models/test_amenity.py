@@ -9,4 +9,5 @@ class TestAmenity(unittest.TestCase):
     """ Test """
 
     def test_amenity(self):
+        """test_amenity"""
         self.assertTrue(True)

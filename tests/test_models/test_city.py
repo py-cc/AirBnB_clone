@@ -9,4 +9,5 @@ class TestCity(unittest.TestCase):
     """ Test """
 
     def test_city(self):
+        """test_city"""
         self.assertTrue(True)

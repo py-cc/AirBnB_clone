@@ -9,4 +9,5 @@ class TestUser(unittest.TestCase):
     """ Test """
 
     def test_User(self):
+        """test_user"""
         self.assertTrue(True)

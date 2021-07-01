@@ -9,4 +9,5 @@ class TestPlace(unittest.TestCase):
     """ Test """
 
     def test_place(self):
+        """test_place"""
         self.assertTrue(True)

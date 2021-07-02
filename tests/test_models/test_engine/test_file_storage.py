@@ -71,4 +71,15 @@ class TestFileStorage(unittest.TestCase):
 
     def test_reload_file(self):
         """Testing function to check the instance method reload"""
-        self.assertEqual(self.storage.reload(), None)
+        with open('file.json', 'w', encoding='utf-8') as myfile:
+            class_write = "{\"BaseModel.7c1ef07d-5b19-42a0-85d0-67b3ec96\": \
+                            {\"id\": \"7c1ef07d-5b19-42a0-85d0-67b3ec96\", \
+                            \"created_at\": \"2021-06-30T10: 51: 30.849940\", \
+                            \"updated_at\": \"2021-06-30T10: 51: 30.849940\", \
+                            \"__class__\": \"BaseModel\"}}"
+            myfile.write(class_write)
+            self.storage.reload()
+            object = self.storage.all()
+            self.assertTrue(
+                "BaseModel.7c1ef07d-5b19-42a0-85d0-67b3ec96a50f",
+                object.keys())

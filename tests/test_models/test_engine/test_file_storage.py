@@ -68,3 +68,7 @@ class TestFileStorage(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             self.storage.reload(test)
+
+    def test_reload_file(self):
+        """Testing function to check the instance method reload"""
+        self.assertEqual(self.storage.reload(), None)

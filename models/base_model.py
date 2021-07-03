@@ -39,7 +39,7 @@ class BaseModel:
         dic["updated_at"] = self.updated_at
         dic["id"] = self.id
         dic["created_at"] = self.created_at
-        return "[" + BaseModel.__name__ + "] " + "(" + self.id + ") " +\
+        return "[" + self.__class__.__name__ + "] " + "(" + self.id + ") " +\
             str(dic)
 
     def save(self):

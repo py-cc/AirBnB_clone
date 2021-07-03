@@ -71,15 +71,26 @@ class TestFileStorage(unittest.TestCase):
 
     def test_reload_file(self):
         """Testing function to check the instance method reload"""
-        with open('file.json', 'w', encoding='utf-8') as myfile:
-            class_write = "{\"BaseModel.7c1ef07d-5b19-42a0-85d0-67b3ec96\": \
-                            {\"id\": \"7c1ef07d-5b19-42a0-85d0-67b3ec96\", \
-                            \"created_at\": \"2021-06-30T10: 51: 30.849940\", \
-                            \"updated_at\": \"2021-06-30T10: 51: 30.849940\", \
-                            \"__class__\": \"BaseModel\"}}"
-            myfile.write(class_write)
-            self.storage.reload()
-            object = self.storage.all()
-            self.assertTrue(
-                "BaseModel.7c1ef07d-5b19-42a0-85d0-67b3ec96a50f",
-                object.keys())
+        self.storage.save()
+        Root = os.path.dirname(os.path.abspath("console.py"))
+        path = os.path.join(Root, "file.json")
+        with open(path, 'r') as f:
+            lines = f.readlines()
+        try:
+            os.remove(path)
+        except:
+            pass
+        self.storage.save()
+        with open(path, 'r') as f:
+            lines2 = f.readlines()
+        self.assertEqual(lines, lines2)
+        try:
+            os.remove(path)
+        except:
+            pass
+        with open(path, "w") as f:
+            f.write("{}")
+        with open(path, "r") as r:
+            for line in r:
+                self.assertEqual(line, "{}")
+        self.assertIs(self.storage.reload(), None)

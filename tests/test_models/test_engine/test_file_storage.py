@@ -95,5 +95,6 @@ class TestFileStorage(unittest.TestCase):
                 self.assertEqual(line, "{}")
         self.assertIs(self.storage.reload(), None)
 
+
 if __name__ == "__name__":
     unittest.main()

@@ -120,7 +120,7 @@ class HBNBCommand(cmd.Cmd):
             elif len(args) < 4:
                 print("** value missing **")
             else:
-                setattr(myobj, args[2], args[3])
+                setattr(myobj, args[2], eval(args[3]))
                 myobj.save()
 
     def do_quit(self, arg):
